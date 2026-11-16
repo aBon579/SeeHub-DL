@@ -269,8 +269,8 @@ function loop() {
 }
 loop();
 
-/* ---------- auto demo run: one full pass on open, interruptible by wheel/touch/keys ---------- */
-let auto = true, autoDir = 1, lastT = performance.now();
+/* ---------- auto demo run: one pass on open, stops at the grid, interruptible by wheel/touch/keys ---------- */
+let auto = true, lastT = performance.now();
 const stopAuto = () => { auto = false; };
 addEventListener('wheel', stopAuto, {passive:true});
 addEventListener('touchstart', stopAuto, {passive:true});
@@ -278,9 +278,8 @@ addEventListener('keydown', e => { if (['ArrowDown','ArrowUp','PageDown','PageUp
 function autoStep(now) {
   if (!auto) return;
   const dt = Math.min(64, now - lastT); lastT = now;
-  target = clamp(target + autoDir * dt / 20000);
-  if (target >= 1) { autoDir = -1; }
-  else if (target <= 0 && autoDir < 0) { auto = false; scrollTo(0, 0); return; }
+  target = clamp(target + dt / 20000);
+  if (target >= 1) { auto = false; return; }
   requestAnimationFrame(autoStep);
 }
 requestAnimationFrame(t => { lastT = t; autoStep(t); });
