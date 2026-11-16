@@ -1,17 +1,14 @@
-﻿# 发新版本四步(完整手册):
-#   ① 构建好的新安装包放进 releases\,命名 SeeHub-x.y.z-Setup.exe
-#   ② .\scripts\release.ps1                     ← 本脚本:生成版本清单 + 同步页面兜底下载链接
-#   ③ .\scripts\gh-release.ps1 -Version x.y.z   ← exe 上传 GitHub Releases(或网页拖拽后 Publish)
-#   ④ .\scripts\deploy.ps1                      ← 推送站点,Pages 约 1 分钟生效
-# 页面底部版本号与右上角 DOWNLOAD 直链全部自动更新,无需手改 index.html。
-# 指定版本号或备注:
+﻿# 版本同步架构(跟随产品仓库):
+#   权威数据源 = 产品仓库 aBon579/SeeHub 的 GitHub Releases;页面直接读它的 API,
+#   在 SeeHub 仓库发版(打 tag + 传安装包)后,SeeHub-DL 主页自动跟随,无需重新部署。
+# 本脚本仅维护本地兜底清单 releases/_latest.json(页面加载时先用它渲染,再被权威源覆盖):
 #   .\scripts\release.ps1 -Version 1.1.0 -Note "新增功能"
 
 param(
   [string]$Version,
   [string]$Note = "Windows x64 · .NET 10 · 正式版",
-  # 安装包所在仓库（Releases 资产）。直链未指定时按此仓库自动拼接。
-  [string]$Repo = "aBon579/SeeHub-DL",
+  # 安装包所在仓库(权威源 = 产品仓库的 Releases)。直链未指定时按此仓库自动拼接。
+  [string]$Repo = "aBon579/SeeHub",
   # 安装包直链。留空则自动拼 GitHub Releases 直链。
   [string]$Url = ""
 )
