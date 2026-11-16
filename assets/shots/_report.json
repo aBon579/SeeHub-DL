@@ -1,0 +1,45 @@
+{
+ "category2": {
+  "category2.jpg": 228419,
+  "category2.s.jpg": 53378,
+  "category2.t.jpg": 13774,
+  "category2.card.jpg": 152218,
+  "category2.webp": 37054
+ },
+ "category1": {
+  "category1.jpg": 358718,
+  "category1.s.jpg": 83435,
+  "category1.t.jpg": 24047,
+  "category1.card.jpg": 236110,
+  "category1.webp": 67708
+ },
+ "home": {
+  "home.jpg": 372070,
+  "home.s.jpg": 79569,
+  "home.t.jpg": 21517,
+  "home.card.jpg": 236152,
+  "home.webp": 58964
+ },
+ "library": {
+  "library.jpg": 90177,
+  "library.s.jpg": 23002,
+  "library.t.jpg": 6733,
+  "library.card.jpg": 63521,
+  "library.webp": 12960
+ },
+ "detail": {
+  "detail.jpg": 267035,
+  "detail.s.jpg": 56221,
+  "detail.t.jpg": 15619,
+  "detail.card.jpg": 172521,
+  "detail.webp": 40170
+ },
+ "player": {
+  "player.jpg": 162338,
+  "player.s.jpg": 44803,
+  "player.t.jpg": 14985,
+  "player.card.jpg": 114512,
+  "player.webp": 25780
+ },
+ "_total_kb": 3060
+}

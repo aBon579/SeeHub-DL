@@ -1,0 +1,12 @@
+# 安装包走 GitHub Releases(git 单文件上限 100MB),绝不入库
+releases/*.exe
+releases/*.zip
+releases/*.msi
+
+# 原始截图素材(站点使用 assets/shots/ 下的压缩卡图,原图不需要上线)
+主页图片素材/
+
+# 本地临时文件
+_site/
+Thumbs.db
+desktop.ini
